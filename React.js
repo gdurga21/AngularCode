@@ -1,24 +1,23 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-class App extends React.Component{
-	render(){
-		let txt = this.props.txt;
-		return <h1>{txt}</h1> 
-			
-	}
+
+class App extends React.Component {
+   constructor(props) {
+      super(props);
+		
+      this.state = {
+         header: "Header from state...",
+         "content": "Content from state..."
+      }
+   }
+	
+   render() {
+      return (
+         <div>
+            <h1>{this.state.header}</h1>
+            <h2>{this.state.content}</h2>
+         </div>
+      );
+   }
 }
 
-App.propTypes = {
-	txt: React.propTypes.string,
-	cat: React.propTypes.number.isRequired
-}
-
-App.defaultProps = {
-	txt: 'this is default txt'
-}
-
-ReactDom.render(
-	<App cat={5}/>,
-	document.getElementById('app')
-);
-
+export default App;
